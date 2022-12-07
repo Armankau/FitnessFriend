@@ -1,25 +1,31 @@
 import React,{ useEffect, useState }  from "react";
+import { useNavigate } from  "react-router-dom"
 import NavBar from "../NavBar/NavBar";
 import HistoryCard from "./HistoryCard";
 import "./History.css"
 
 function HistoryPage(){
-    const [data, setData] = useState([])
+    const navigate = useNavigate()
 
+    const [data, setData] = useState([])
+    
     useEffect(() => {
         fetch("/me")
         .then(resp => resp.json())
         .then((data) => {
-            const foodsAndExercises = data.exercises.concat(data.foods)
-            let dates = foodsAndExercises.map(item => {
-                return item.created_at.slice(0,10)
-            })
-            const daysArray = []
-            dates = new Set(dates)
-            dates.forEach(day => {
-                daysArray.push(foodsAndExercises.filter(item => item.created_at.slice(0,10) === day))
-            })
-            setData(daysArray.reverse())
+            if (data.error === "not authorized") navigate("/login")
+            else {
+                const foodsAndExercises = data.exercises.concat(data.foods)
+                let dates = foodsAndExercises.map(item => {
+                    return item.created_at.slice(0,10)
+                })
+                const daysArray = []
+                dates = new Set(dates)
+                dates.forEach(day => {
+                    daysArray.push(foodsAndExercises.filter(item => item.created_at.slice(0,10) === day))
+                })
+                setData(daysArray.reverse())
+            }
         })
     }, [])
 

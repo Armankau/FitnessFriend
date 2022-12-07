@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from "react";
+import { useNavigate } from  "react-router-dom"
 import NavBar from "../NavBar/NavBar.js"
 import AddFoodForm from "./AddFoodForm.js";
 import AddExerciseForm from "./AddExerciseForm.js";
@@ -8,6 +9,8 @@ import "./TodayPage.css"
 
 
 const TodayPage = () => {
+
+    const navigate = useNavigate()
 
     const [calGoal, setCalGoal] = useState(0)
     const [calConsumed, setCalConsumed] = useState(0)
@@ -22,11 +25,13 @@ const TodayPage = () => {
         fetch("/me")
         .then(resp => resp.json())
         .then(userData => {
-            setCalGoal(userData.calories_goal)
-            setUserId(userData.id)
-            setFoodList(userData.foods.filter(food => food.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
-            setExerciseList(userData.exercises.filter(exercise => exercise.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
-            })
+            if (userData.error === "not authorized") navigate("/login")
+            else {
+                setCalGoal(userData.calories_goal)
+                setUserId(userData.id)
+                setFoodList(userData.foods.filter(food => food.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
+                setExerciseList(userData.exercises.filter(exercise => exercise.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
+            }})
     }, [])
     
     //keeps track of all the calories 
@@ -42,6 +47,9 @@ const TodayPage = () => {
     const addingFoodForm = showAddFood ? <AddFoodForm userId={userId} setFoodList={setFoodList} foodList={foodList} setShowAdd={setShowAddFood}/> : <></>
     const addingExerciseForm = showAddExercise ? <AddExerciseForm userId={userId} setExerciseList={setExerciseList} exerciseList={exerciseList} setShowAdd={setShowAddExercise}/> : <></>
 
+    fetch("/me")
+        .then(resp => resp.json())
+        .then(data => console.log(data.error === "not authorized"))
     return (
         <>
             <NavBar/>
