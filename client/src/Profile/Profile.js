@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from  "react-router-dom"
 import NavBar from "../NavBar/NavBar";
 import ProfileUpdateAge from "./ProfileUpdateAge";
 import ProfileUpdateCalories from "./ProfileUpdateCalories";
@@ -8,6 +9,7 @@ import ProfileUpdateSex from "./ProfileUpdateSex";
 import ProfileUpdateUsername from "./ProfileUpdateUsername";
 
 function Profile(){
+    const navigate = useNavigate()
 
     const [user, setUser] = useState("")
     const [age, setAge] = useState(user.age)
@@ -18,7 +20,10 @@ function Profile(){
     useEffect(() => {
         fetch("/me")
         .then(resp => resp.json())
-        .then(data => setUser(data))
+        .then(data => {
+            if (data.error === "not authorized") navigate("/login")
+            else setUser(data)
+        })
     }, [])
 
     function handleAgeSubmit(e) {
