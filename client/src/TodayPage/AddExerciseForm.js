@@ -14,8 +14,15 @@ const AddExerciseForm = ({userId, setExerciseList, exerciseList, setShowAdd}) =>
         })
         .then(resp => resp.json())
         .then(createdObject => {
-            setExerciseList([...exerciseList,createdObject])
-            setShowAdd(false)
+            if (createdObject.errors) {
+                //show validation error
+            }
+            else {
+                setExerciseList([...exerciseList,createdObject])
+                setShowAdd(false)
+            }
+
+            
         })
     }
     return (

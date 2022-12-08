@@ -13,8 +13,13 @@ const AddFoodForm = ({userId, setFoodList, foodList, setShowAdd}) => {
         })
         .then(resp => resp.json())
         .then(createdObject => {
-            setFoodList([...foodList,createdObject])
-            setShowAdd(false)
+            if (createdObject.errors) {
+                //show validation error
+            }
+            else {
+                setFoodList([...foodList,createdObject])
+                setShowAdd(false)
+            }
         })
     }
     return (
