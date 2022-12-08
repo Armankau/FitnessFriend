@@ -51,7 +51,7 @@ const TodayPage = () => {
         .then(resp => resp.json())
         .then(data => console.log(data.error === "not authorized"))
     return (
-        <>
+        <div className="Today">
             <NavBar/>
             <div className="calories-display">
                 <p>Total Calories Goal: {calGoal}</p>
@@ -76,7 +76,7 @@ const TodayPage = () => {
                     {addingExerciseForm}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

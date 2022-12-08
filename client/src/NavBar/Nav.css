@@ -7,8 +7,11 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 20px;
+    color: black;
+    background-color: white;
 }
 
 div.NavBar {
     height: 50px;
+    background-color: bisque;
 }
