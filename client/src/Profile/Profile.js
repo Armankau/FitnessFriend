@@ -1,12 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate } from  "react-router-dom"
 import NavBar from "../NavBar/NavBar";
 import ProfileUpdateAge from "./ProfileUpdateAge";
 import ProfileUpdateCalories from "./ProfileUpdateCalories";
 import ProfileUpdateSex from "./ProfileUpdateSex";
 import ProfileUpdateUsername from "./ProfileUpdateUsername";
+import PopUp from "../PopUp/PopUp.js"
 
 function Profile(){
     const navigate = useNavigate()
@@ -16,6 +15,7 @@ function Profile(){
     const [sex, setSex] = useState(user.sex)
     const [calories_goal, setCaloriesGoal] = useState(user.calories_goal)
     const [username, setUsername] = useState(user.username)
+    const [errorMessage, setErrorMessage] = useState([])
 
     useEffect(() => {
         fetch("/me")
@@ -36,7 +36,12 @@ function Profile(){
             })
         })
         .then(resp => resp.json())
-        .then((user) => setUser(user))
+        .then((user) => {
+            if (user.errors){
+                setErrorMessage(user.errors)
+            }
+            setUser(user)
+        })
     }
 
     function handleSexSubmit(e) {
@@ -121,6 +126,7 @@ function Profile(){
                 </p>
             </div>
         </div>
+        <PopUp errorMessages={errorMessage}/>
      </div>
     )
 

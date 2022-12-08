@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 import { useNavigate } from  "react-router-dom"
-import PopUp from "./PopUp.js"
+import PopUp from "../PopUp/PopUp.js"
 import "./CreateAccount.css"
 
 const CreateAccountForm = () => {
@@ -34,7 +34,7 @@ const CreateAccountForm = () => {
             .then((r) => r.json())
             .then(postResponse => {
                 if (postResponse) setErrorM(postResponse) 
-                // else navigate("/login")
+                else navigate("/login")
             }
                 );
     }
