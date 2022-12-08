@@ -9,8 +9,6 @@ const PopUp = ({errorMessages}) => {
         if (errorMessages[0]) setShow(true)
     }, [errorMessages])
 
-    console.log(show)
-
     const handleClick = event => {
         setShow(false)
     }

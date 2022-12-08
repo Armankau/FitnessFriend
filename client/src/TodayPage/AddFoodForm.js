@@ -1,6 +1,9 @@
-import React from "react"
+import React,{useState} from "react"
+import PopUp from "../PopUp/PopUp.js"
 
 const AddFoodForm = ({userId, setFoodList, foodList, setShowAdd}) => {
+    const [errorMessages, setErrorMessages] = useState([])
+    
     const onSubmitFood = event => {
         event.preventDefault()
         
@@ -13,9 +16,7 @@ const AddFoodForm = ({userId, setFoodList, foodList, setShowAdd}) => {
         })
         .then(resp => resp.json())
         .then(createdObject => {
-            if (createdObject.errors) {
-                //show validation error
-            }
+            if (createdObject.errors) setErrorMessages(createdObject.errors)
             else {
                 setFoodList([...foodList,createdObject])
                 setShowAdd(false)
@@ -34,6 +35,7 @@ const AddFoodForm = ({userId, setFoodList, foodList, setShowAdd}) => {
                 <br/>
                 <input type="submit" value="Add" />
             </form>
+            <PopUp errorMessages={errorMessages}/>
         </div>
     )
 }

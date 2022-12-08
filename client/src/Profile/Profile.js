@@ -37,10 +37,8 @@ function Profile(){
         })
         .then(resp => resp.json())
         .then((user) => {
-            if (user.errors){
-                setErrorMessage(user.errors)
-            }
-            setUser(user)
+            if (user.errors) setErrorMessage(user.errors)
+            else setUser(user)
         })
     }
 
@@ -54,7 +52,12 @@ function Profile(){
         })
     })
         .then(resp => resp.json())
-        .then((user) => setUser(user))
+        .then((user) => {
+            if (user.errors){
+                setErrorMessage(user.errors)
+            }
+            setUser(user)
+        })
     }
     function handleCaloriesSubmit(e) {
         e.preventDefault()
@@ -66,7 +69,10 @@ function Profile(){
             })
         })
         .then(resp => resp.json())
-        .then((user) => setUser(user))
+        .then((user) => {
+            if (user.errors) setErrorMessage(user.errors)
+            else setUser(user)
+        })
     }
 
     function handleUsernameSubmit(e) {
@@ -79,7 +85,10 @@ function Profile(){
             })
         })
         .then(resp => resp.json())
-        .then((user) => setUser(user))
+        .then((user) => {
+            if (user.errors) setErrorMessage(user.errors)
+            else setUser(user)
+        })
     }
 
 
