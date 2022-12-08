@@ -1,6 +1,8 @@
-import React from "react"
+import React,{useState} from "react"
+import PopUp from "../PopUp/PopUp.js"
 
 const AddExerciseForm = ({userId, setExerciseList, exerciseList, setShowAdd}) => {
+    const [errorMessages, setErrorMessages] = useState([])
     const onSubmitExercise = event => {
         event.preventDefault()
         
@@ -14,9 +16,7 @@ const AddExerciseForm = ({userId, setExerciseList, exerciseList, setShowAdd}) =>
         })
         .then(resp => resp.json())
         .then(createdObject => {
-            if (createdObject.errors) {
-                //show validation error
-            }
+            if (createdObject.errors) setErrorMessages(createdObject.errors)
             else {
                 setExerciseList([...exerciseList,createdObject])
                 setShowAdd(false)
@@ -37,6 +37,7 @@ const AddExerciseForm = ({userId, setExerciseList, exerciseList, setShowAdd}) =>
                 <br/>
                 <input type="submit" value="Add" />
             </form>
+            <PopUp errorMessages={errorMessages}/>
         </div>
     )
 }
