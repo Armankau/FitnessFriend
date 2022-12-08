@@ -125,3 +125,21 @@ div.calories-display {
     height: 1000px;
 }
 
+#suggested-meals {
+    text-align: center;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.meal-div {
+    margin-right: 5%;
+    /* background: rgba(200,200,200,0.5); */
+}
+
+.meal-div p {
+    margin: 1px;
+    transform: translate();
+
+    /* background-color: rgb(200,200,200); */
+}

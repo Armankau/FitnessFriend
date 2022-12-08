@@ -20,6 +20,7 @@ const TodayPage = () => {
     const [userId, setUserId] = useState(null)
     const [foodList, setFoodList] = useState([])
     const [exerciseList, setExerciseList] = useState([])
+    const [mealArray, setMealArray] = useState([])
 
     useEffect(() => {
         fetch("/me")
@@ -33,6 +34,37 @@ const TodayPage = () => {
                 setExerciseList(userData.exercises.filter(exercise => exercise.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
             }})
     }, [])
+
+    useEffect(() => {
+        const anotherArray = []
+        for (let i = 0; i < 4; i++) {
+            fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+            .then(resp => resp.json())
+            .then(meal => {
+                anotherArray.push({
+                    name: meal.meals[0].strMeal,
+                    img: meal.meals[0].strMealThumb, 
+                    url: meal.meals[0].strSource
+                })
+                setMealArray([...anotherArray])
+            })
+        }
+    },[])
+
+    const MealSuggestions = ({mealArray}) => {
+        const theMeals = mealArray.map(meal => {
+            console.log(meal.url)
+            return (
+                <div key={meal.name} className="meal-div">
+                    <p>{meal.name}</p>
+                    <a href={meal.url} target="_blank">
+                        <img src={meal.img} alt={meal.name} width="200px" height="200px"/>
+                    </a>
+                </div>
+            )
+        })
+        return theMeals
+    }
     
     //keeps track of all the calories 
     useEffect(() => {
@@ -47,9 +79,6 @@ const TodayPage = () => {
     const addingFoodForm = showAddFood ? <AddFoodForm userId={userId} setFoodList={setFoodList} foodList={foodList} setShowAdd={setShowAddFood}/> : <></>
     const addingExerciseForm = showAddExercise ? <AddExerciseForm userId={userId} setExerciseList={setExerciseList} exerciseList={exerciseList} setShowAdd={setShowAddExercise}/> : <></>
 
-    fetch("/me")
-        .then(resp => resp.json())
-        .then(data => console.log(data.error === "not authorized"))
     return (
         <div className="Today">
             <NavBar/>
@@ -76,6 +105,10 @@ const TodayPage = () => {
                     {addingExerciseForm}
                 </div>
             </div>
+            <div id="suggested-meals">
+                <MealSuggestions mealArray={mealArray} />
+            </div>
+                
         </div>
     )
 }
