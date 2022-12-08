@@ -40,10 +40,10 @@ function HistoryPage(){
 
 
     return (
-        <>
+        <div className="historyPage">
             <NavBar />
             <CardContainer />
-        </>
+        </div>
     )
 }
 

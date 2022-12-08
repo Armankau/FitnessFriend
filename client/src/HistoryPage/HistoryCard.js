@@ -46,12 +46,12 @@ const HistoryCard = ({dayData}) => {
 
             <div id="smaller-container">
                 <div id="exercise-div">
-                    <p className="item-head">Exercises</p>
+                    <h3 className="item-head">Exercises</h3>
                     {exerciseElements}
                 </div>
 
                 <div id="food-div">
-                    <p className="item-head">Foods</p>
+                    <h3 className="item-head">Foods</h3>
                     {foodElements}
                 </div>
             </div>
