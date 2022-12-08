@@ -5,6 +5,7 @@ class Exercise < ApplicationRecord
 
     validates :duration, presence: true
     validates :duration, numericality: { only_integer: true }
+    validates :duration, numericality: {greater_than_or_equal_to: 0 }
 
     validates :calories_burnt, presence: true
     validates :calories_burnt, numericality: { only_integer: true }

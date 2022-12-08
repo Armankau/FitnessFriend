@@ -1,26 +1,31 @@
-import React from "react";
-import { useState } from "react";
+import React,{useState, useEffect} from "react";
 
-function PopUp({errors}){
+const PopUp = ({errorMessages}) => {
 
-    const [error, setError] = useState(false)
-    
-    function handleError(){
-        setError(!error)
+    const [show, setShow] = useState(false)
+    const allErrorMessages = errorMessages.map(error => <p key={error}>{error}</p>)
+    useEffect(() => {
+        if (errorMessages[0]) setShow(true)
+    }, [errorMessages])
+
+    console.log(show)
+
+    const handleClick = event => {
+        setShow(false)
     }
 
-    // const message = errors.map((err) => err)
-    // console.log(message)
-
     return (
-        <h1>{error? 
-            <div>
-\                {errors}
+        <>
+        {show ? 
+            <div id="annoying-popup">
+                {allErrorMessages}
+                <button onClick={handleClick}>Ok</button>
             </div>
             :
             <div></div>
-        }</h1>
-    ) 
+        }
+        </>
+    )
 }
 
-export default PopUp;
+export default PopUp
