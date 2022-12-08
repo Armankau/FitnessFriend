@@ -150,24 +150,26 @@ div.calories-display {
     text-align: center;
 }
 
-.Today{
+.todayPage{
     background-image: url("https://i.imgur.com/i9d2fzP.png"); 
-    height: 1000px;
+    /* background-size: cover;  */
+    background-repeat: no-repeat; 
 }
 
 #suggested-meals {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 400px;
     display: flex;
     justify-content: center;
 }
 
 .meal-div {
     margin-right: 5%;
+    /* background-color: white; */
 }
 
 .meal-div p {
     margin: 1px;
     transform: translate();
-
+    background-color: white;
 }

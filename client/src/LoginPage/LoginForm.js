@@ -37,6 +37,13 @@ let LoginForm = () => {
         })
     }
 
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "loginPage"
+        // console.log(body)
+    },[])
+
 
     return (
         <div className="loginPage">

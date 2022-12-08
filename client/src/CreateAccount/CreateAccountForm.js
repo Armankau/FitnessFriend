@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
 import { useNavigate } from  "react-router-dom"
 import PopUp from "../PopUp/PopUp.js"
 import "./CreateAccount.css"
@@ -41,6 +41,12 @@ const CreateAccountForm = () => {
 
     }
 
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "createAccount"
+        // console.log(body)
+    },[])
     
     
     return (

@@ -65,7 +65,13 @@ const TodayPage = () => {
         })
         return theMeals
     }
-    
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "todayPage"
+        console.log(body)
+    },[])
+
     //keeps track of all the calories 
     useEffect(() => {
         setCalConsumed(

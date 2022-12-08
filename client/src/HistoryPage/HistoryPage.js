@@ -38,6 +38,13 @@ function HistoryPage(){
         )
     }
 
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "historyPage1"
+        // console.log(body)
+    },[])
+    
 
     return (
         <div className="historyPage">

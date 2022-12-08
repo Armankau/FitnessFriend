@@ -4,6 +4,7 @@
     transform: translate(-50%);
     text-align: center;
     background-color: skyblue;
+    margin-bottom: 1px;
 }
 
 .calorie-info > p {
@@ -17,7 +18,8 @@
     height: 30px;
     line-height: 30px;
     text-align: center;
-    background-color: white;
+    background-color: bisque;
+    margin-bottom: 1px;
 }
 
 
@@ -78,19 +80,28 @@
     text-align: center;
     border-style: solid;
     border-width: 1px;
+    margin-bottom: 1px;
+    margin-top: 1px;
 } 
-/*
+
 .item-head {
-    text-align: center;
-    background-color: pink;} */
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 #big-div {
    border-bottom: dashed;  
    border-width: 1px;
-   border-color: white
+   border-color: white;
+   width: 60%;
+   margin-left: 20%;
+   background-color: white;
+   min-height: 100%;
 }
 
-.historyPage{
-    background-image: url("https://i.imgur.com/i9d2fzP.png");
+.historyPage1{
+    /* background-image: url("https://i.imgur.com/i9d2fzP.png"); */
     background-size: cover;
+    height: 1000px;
 }
+
