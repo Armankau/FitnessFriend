@@ -6,6 +6,8 @@
     height: 30px;
     line-height: 30px;
     margin: 1% 4% 1% 4%;
+    text-align: center;
+    background-color: rgb(240, 162, 67);
 }
 
 div.calories-display {
@@ -28,6 +30,8 @@ div.calories-display {
     background-color: bisque;
     margin-top: 1%;
 }
+
+
 
 #main-container p {
     text-align: center;
@@ -83,9 +87,10 @@ div.calories-display {
     top: 10%;
     left: 50%;
     transform: translate(-50%);
-    background-color: lightgray;
+    background-color: bisque;
     width: 500px;
     height: 300px;
+    
 }
 
 #add button {
@@ -109,6 +114,7 @@ div.calories-display {
 }
 
 .Today{
-    background-color: pink;
+    background-image: url("https://i.imgur.com/CkjIXfe.png");
     height: 1000px;
 }
+
