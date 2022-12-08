@@ -44,24 +44,29 @@ div.calories-display {
 #main-container p.item-header {
     padding-left: 20px;
     text-align: left;
+        background-color: rgb(240, 162, 67)
+
 }
 
 .item-1 {
     width: 25%;
     margin-right: 1%;
     float: left;
+    background-color: rgb(240, 162, 67);
 }
 
 .item-2 {
     width: 19%;
     margin-right: 1%;
     float: left;
+    background-color: rgb(240, 162, 67)
 }
 
 .item-3 {
     width: 19%;
     margin-right: 1%;
     float: left;
+    background-color: rgb(240, 162, 67)
 }
 
 #main-container button {
@@ -69,6 +74,8 @@ div.calories-display {
     margin-left: 1%;
     margin-bottom: 1%;
     width: 30%;
+    background-color: rgb(240, 162, 67)
+
 }
 
 #main-container button.add-item  {
