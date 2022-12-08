@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import { useNavigate } from  "react-router-dom"
-
 import "./CreateAccount.css"
+import PopUp from "./PopUp"
 
 const CreateAccountForm = () => {
 
@@ -19,6 +19,7 @@ const CreateAccountForm = () => {
         setFormData({...formData, [event.target.name]:event.target.value})
     }
     const navigate = useNavigate()
+    const [errors, setErrors] = useState()
 
     const createAccount = (event) => {
         event.preventDefault()
@@ -30,9 +31,18 @@ const CreateAccountForm = () => {
             body: JSON.stringify(formData),
           })
             .then((r) => r.json())
-            .then(navigate("/login"));
+            .then((data) => {
+                if(data.errors) {
+                   setErrors(data.errors)
+                //    alert(data.errors)
+                } else {
+                   navigate("/login")
+                }
+            });
     }
 
+    
+    
     return (
         <div className="form-container">
             <form className="create-user" onSubmit={createAccount}>
@@ -51,6 +61,7 @@ const CreateAccountForm = () => {
                 <input type="text" name="sex" placeholder="Enter your sex..." onChange={onDataChange}/>
                 <br/>
                 <input type="submit" name="create_user" value="Create Account" id={"submit-account"} />
+                <label>{errors}</label>
             </form>
         </div>
     )

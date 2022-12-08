@@ -19,13 +19,13 @@ div.calories-display {
 
 #track-food {
     width: 45%;
-    background-color: cyan;
+    background-color: bisque;
     float: left;
 }
 
 #track-exercise {
     margin-left: 50%;
-    background-color: lightgreen;
+    background-color: bisque;
     margin-top: 1%;
 }
 
@@ -106,4 +106,9 @@ div.calories-display {
 #add input {
     margin-top: 2%;
     text-align: center;
+}
+
+.Today{
+    background-color: pink;
+    height: 1000px;
 }

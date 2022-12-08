@@ -15,6 +15,6 @@ class User < ApplicationRecord
 
     validates :sex, presence: true
     
-    validates :password, presence: true
-    validates :password, length: {in: 8..20}
+    # validates :password, presence: true
+    # validates :password, length: {in: 8..20}
 end
