@@ -20,6 +20,7 @@ const CreateAccountForm = () => {
         setFormData({...formData, [event.target.name]:event.target.value})
     }
     const navigate = useNavigate()
+    const [errors, setErrors] = useState()
 
     const createAccount = (event) => {
         event.preventDefault()
@@ -34,11 +35,14 @@ const CreateAccountForm = () => {
             .then((r) => r.json())
             .then(postResponse => {
                 if (postResponse) setErrorM(postResponse) 
-                // else navigate("/login")
+                else navigate("/login")
             }
                 );
+
     }
 
+    
+    
     return (
         <div className="form-container">
             <form className="create-user" onSubmit={createAccount}>
@@ -55,6 +59,7 @@ const CreateAccountForm = () => {
                 <input type="text" name="sex" placeholder="Enter your sex..." onChange={onDataChange}/>
                 <br/>
                 <input type="submit" name="create_user" value="Create Account" id={"submit-account"} />
+                <label>{errors}</label>
             </form>
             <PopUp errorMessages={errorM.errors}/>
         </div>
