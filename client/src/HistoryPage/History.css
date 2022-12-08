@@ -1,67 +1,96 @@
 #day-title {
     margin-left: 50%;
+    width: 150px;
     transform: translate(-50%);
     text-align: center;
-
+    background-color: skyblue;
 }
 
 .calorie-info > p {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     width: 30%;
     margin-left: 1.66%;
     margin-right: 1.66%;
-    border-style: solid;
+    /* border-style: solid; */
     border-width: 1px;
-    float: left;
+    /* float: left; */
     height: 30px;
     line-height: 30px;
     text-align: center;
+    background-color: white;
 }
+
 
 .calorie-info {
     margin-left: 5%;
     width: 90%;
+    display: flex;
+    justify-content: center;
 }
+
+
 
 #smaller-container {
-    box-sizing: border-box;
-    width: 90%;
-    margin-left: 5%;
-    float:left;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
+
+
 
 #food-div {
-    width: 45%;
-    background-color: cyan;
-    float: left;
-    border-style:solid;
+    text-align: center;
+    background-color: bisque;
+    padding: 1%;
+    width: 42%;
+    height: 30 rem;
+    /* float: left; */
+    /* opacity: .8; */
+    display: inline-grid;
+    margin: 2%;
+    box-shadow: 2px 2px brown ;
+    color: black;
+    border: solid;
     border-width: 1px;
-}
-
+} 
+/*
+.item-head{
+    background-color: white;
+} */
 #exercise-div {
-    float: right;
-    width: 45%;
-    background-color: lightgreen;
-    border-style:solid;
+    text-align: center;
+    background-color: bisque;
+    padding: 1%;
+    width: 42%;
+    /* float: right; */
+    height: 30 rem;
+    margin: 2%;
+    box-shadow: 2px 2px brown ;
+    color: black;
+    border: solid;
     border-width: 1px;
 }
 
 .item-elements > p {
     box-sizing: border-box;
-    width: 33.33%;
-    float: left;
+    width: 33.33%; 
+    float: left; 
     text-align: center;
-}
-
+    border-style: solid;
+    border-width: 1px;
+} 
+/*
 .item-head {
     text-align: center;
-}
+    background-color: pink;} */
 
 #big-div {
-    box-sizing: border-box;
-    float:left;
-    margin: 2.5%;
-    padding-bottom: 2%;
-    width: 45%;
-    border-style: solid;
+   border-bottom: dashed;  
+   border-width: 1px;
+   border-color: white
+}
+
+.historyPage{
+    background-image: url("https://i.imgur.com/i9d2fzP.png");
+    background-size: cover;
 }
