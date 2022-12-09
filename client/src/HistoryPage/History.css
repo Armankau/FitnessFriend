@@ -4,7 +4,8 @@
     transform: translate(-50%);
     text-align: center;
     background-color: skyblue;
-    margin-bottom: 1px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .calorie-info > p {
@@ -46,8 +47,6 @@
     padding: 1%;
     width: 42%;
     height: 30 rem;
-    /* float: left; */
-    /* opacity: .8; */
     display: inline-grid;
     margin: 2%;
     box-shadow: 2px 2px brown ;
@@ -64,7 +63,6 @@
     background-color: bisque;
     padding: 1%;
     width: 42%;
-    /* float: right; */
     height: 30 rem;
     margin: 2%;
     box-shadow: 2px 2px brown ;
@@ -90,18 +88,23 @@
 }
 
 #big-div {
-   border-bottom: dashed;  
-   border-width: 1px;
-   border-color: white;
-   width: 60%;
-   margin-left: 20%;
-   background-color: white;
-   min-height: 100%;
+    border-style: solid; 
+    border-top-style: none; 
+    border-width: 1px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    /* background-color: white; */
 }
 
 .historyPage1{
-    /* background-image: url("https://i.imgur.com/i9d2fzP.png"); */
+    background-image: url("https://i.imgur.com/i9d2fzP.png");
     background-size: cover;
-    height: 1000px;
+}
+
+.historyPage {
+    min-height: 100vh;
+    width: 60%;
+    margin-left: 20%;
+    background: rgba(255,255,255,0.7);
 }
 

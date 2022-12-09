@@ -22,6 +22,8 @@ div.calories-display {
 }
  
 #main-container {
+    display: flex;
+    justify-content: center;
     width: 90%;
     margin-left: 5%;
 }
@@ -30,8 +32,7 @@ div.calories-display {
     text-align: center;
     background-color: bisque;
     padding: 1%;
-    width: 40%;
-    float: right;
+    width: 45%;
     height: 30 rem;
     /* opacity: .8; */
     display: inline-grid;
@@ -47,9 +48,8 @@ div.calories-display {
     text-align: center;
     background-color: bisque;
     padding: 1%;
-    width: 40%;
+    width: 45%;
     height: 30 rem;
-    float: left;
     /* opacity: .8; */
     display: inline-grid;
     margin: 2%;
@@ -77,14 +77,14 @@ div.calories-display {
 }
 
 .item-1 {
-    width: 25%;
+    width: 21%;
     margin-right: 1%;
     float: left;
     background-color: bisque;
 }
 
 .item-2 {
-    width: 19%;
+    width: 21%;
     margin-right: 1%;
     float: left;
     background-color: bisque;
@@ -92,7 +92,7 @@ div.calories-display {
 }
 
 .item-3 {
-    width: 19%;
+    width: 21%;
     margin-right: 1%;
     float: left;
     background-color: bisque;
@@ -109,7 +109,6 @@ div.calories-display {
 
 
 #main-container button.add-item  {
-    float:none;
     margin-left: 50%;
     transform: translate(-50%);
 }
@@ -154,6 +153,13 @@ div.calories-display {
     background-image: url("https://i.imgur.com/i9d2fzP.png"); 
     /* background-size: cover;  */
     background-repeat: no-repeat; 
+}
+
+.today {
+    width: 60%;
+    margin-left: 20%;
+    background: rgba(255, 255, 255, 0.8);
+    min-height: 100vh;
 }
 
 #suggested-meals {

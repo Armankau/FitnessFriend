@@ -86,7 +86,7 @@ const TodayPage = () => {
     const addingExerciseForm = showAddExercise ? <AddExerciseForm userId={userId} setExerciseList={setExerciseList} exerciseList={exerciseList} setShowAdd={setShowAddExercise}/> : <></>
 
     return (
-        <div className="Today">
+        <div className="today">
             <NavBar/>
             <div className="calories-display">
                 <p>Total Calories Goal: {calGoal}</p>
@@ -111,6 +111,7 @@ const TodayPage = () => {
                     {addingExerciseForm}
                 </div>
             </div>
+            
             <div id="suggested-meals">
                 <MealSuggestions mealArray={mealArray} />
             </div>
