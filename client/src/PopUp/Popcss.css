@@ -1,8 +1,27 @@
 #annoying-popup {
-    background-color: white;
-    color: red;
+    background-color:rgb(184, 216, 228);
+    border-style: solid;
+    border-width: 2px;
     position: fixed;
     left: 50%;
     transform: translate(-50%);
     top: 20%;
+}
+
+#annoying-popup p {
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    color: red;
+    font-weight: bold;
+}
+
+.popButton{
+    background-color: skyblue;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100px;
 }

@@ -13,7 +13,9 @@ function HistoryPage(){
         fetch("/me")
         .then(resp => resp.json())
         .then((data) => {
-            if (data.error === "not authorized") navigate("/login")
+            if (["not authorized", "User not found"].includes(data.error)) {
+                navigate("/login")
+            }
             else {
                 const foodsAndExercises = data.exercises.concat(data.foods)
                 let dates = foodsAndExercises.map(item => {
@@ -38,6 +40,13 @@ function HistoryPage(){
         )
     }
 
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "historyPage1"
+        // console.log(body)
+    },[])
+    
 
     return (
         <div className="historyPage">

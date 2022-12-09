@@ -8,9 +8,9 @@ const FoodElement = ({name, weight, calories, id, setFoodList, foodList}) => {
 
     return (
         <div id="row">
-            <p className="item-1">{name}</p>
-            <p className="item-2">{`${weight} grams`}</p>
-            <p className="item-3">{`${calories} calories`}</p>
+            <p className="item">{name}</p>
+            <p className="item">{`${weight} grams`}</p>
+            <p className="item">{`${calories} calories`}</p>
             <button 
                 id={id} 
                 onClick={handleDelete}

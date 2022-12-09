@@ -26,7 +26,9 @@ const TodayPage = () => {
         fetch("/me")
         .then(resp => resp.json())
         .then(userData => {
-            if (userData.error === "not authorized") navigate("/login")
+            if (["not authorized", "User not found"].includes(userData.error)) {
+                navigate("/login")
+            }
             else {
                 setCalGoal(userData.calories_goal)
                 setUserId(userData.id)
@@ -53,7 +55,6 @@ const TodayPage = () => {
 
     const MealSuggestions = ({mealArray}) => {
         const theMeals = mealArray.map(meal => {
-            console.log(meal.url)
             return (
                 <div key={meal.name} className="meal-div">
                     <p>{meal.name}</p>
@@ -65,7 +66,12 @@ const TodayPage = () => {
         })
         return theMeals
     }
-    
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "todayPage"
+    },[])
+
     //keeps track of all the calories 
     useEffect(() => {
         setCalConsumed(
@@ -80,7 +86,7 @@ const TodayPage = () => {
     const addingExerciseForm = showAddExercise ? <AddExerciseForm userId={userId} setExerciseList={setExerciseList} exerciseList={exerciseList} setShowAdd={setShowAddExercise}/> : <></>
 
     return (
-        <div className="Today">
+        <div className="today">
             <NavBar/>
             <div className="calories-display">
                 <p>Total Calories Goal: {calGoal}</p>
@@ -99,12 +105,15 @@ const TodayPage = () => {
                 </div>
 
                 <div id="track-exercise">
-                    <p className="item-header">Track Exercise</p>
+                    <p  className="item-header">Track Exercise</p>
                     <ExerciseContainer exerciseList={exerciseList} setExerciseList={setExerciseList} />
                     <button className="add-item" onClick={() => setShowAddExercise(true)}>Add Exercise</button>
                     {addingExerciseForm}
                 </div>
             </div>
+
+            <h1 id="recipe-header"> Click on the pictures below to checkout our daily featured recipes!!!</h1>
+            
             <div id="suggested-meals">
                 <MealSuggestions mealArray={mealArray} />
             </div>

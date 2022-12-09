@@ -9,11 +9,11 @@
     margin: 1% 4% 1% 4%;
     text-align: center;
     background: bisque;
-    background-color: bisque;
+    background-color: powderblue;
 }
 
 .button-form{
-    background-color: bisque ;
+    background-color: blue ;
 }
 
 
@@ -22,6 +22,8 @@ div.calories-display {
 }
  
 #main-container {
+    display: flex;
+    justify-content: center;
     width: 90%;
     margin-left: 5%;
 }
@@ -30,8 +32,7 @@ div.calories-display {
     text-align: center;
     background-color: bisque;
     padding: 1%;
-    width: 40%;
-    float: right;
+    width: 45%;
     height: 30 rem;
     /* opacity: .8; */
     display: inline-grid;
@@ -47,9 +48,8 @@ div.calories-display {
     text-align: center;
     background-color: bisque;
     padding: 1%;
-    width: 40%;
+    width: 45%;
     height: 30 rem;
-    float: left;
     /* opacity: .8; */
     display: inline-grid;
     margin: 2%;
@@ -76,55 +76,45 @@ div.calories-display {
     background-color: bisque;
 }
 
-.item-1 {
-    width: 25%;
+.item {
     margin-right: 1%;
-    float: left;
+    width: 21%;
     background-color: bisque;
 }
-
-.item-2 {
-    width: 19%;
-    margin-right: 1%;
-    float: left;
-    background-color: bisque;
-
-}
-
-.item-3 {
-    width: 19%;
-    margin-right: 1%;
-    float: left;
-    background-color: bisque;
-}
-
 
 #main-container button {
-    float: right;
     margin-left: 1%;
     margin-bottom: 1%;
     width: 30%;
-    background-color: bisque;
+    background-color: powderblue;
 }
 
 
 #main-container button.add-item  {
-    float:none;
     margin-left: 50%;
     transform: translate(-50%);
 }
 
 #row {
+    display: flex;
+    justify-content: center;
     height: 43px;
 }
 
+#row p {
+    padding-top: 7px;
+    text-align: middle;
+}
+
 #add {
+    border-style: solid;
+    border-width: 2px;
     position: fixed;
     z-index: 1;
     top: 10%;
     left: 50%;
     transform: translate(-50%);
-    background-color: bisque;
+    background-color: powderblue;
     width: 500px;
     height: 300px;
     
@@ -136,6 +126,7 @@ div.calories-display {
     height: 30px;
     top:0;
     right:0;
+    background-color: rgb(47, 187, 206);
 }
 
 #add form {
@@ -148,26 +139,46 @@ div.calories-display {
 #add input {
     margin-top: 2%;
     text-align: center;
+    /* background-color: pink; */
 }
 
-.Today{
+.todayPage{
     background-image: url("https://i.imgur.com/i9d2fzP.png"); 
-    height: 1000px;
+    /* background-size: cover;  */
+    background-repeat: no-repeat; 
+}
+
+.today {
+    width: 60%;
+    margin-left: 20%;
+    background: rgba(255, 255, 255, 0.8);
+    min-height: 100vh;
 }
 
 #suggested-meals {
     text-align: center;
-    margin-top: 10%;
     display: flex;
     justify-content: center;
 }
 
 .meal-div {
     margin-right: 5%;
+    /* background-color: white; */
 }
 
 .meal-div p {
     margin: 1px;
     transform: translate();
+    background-color: white;
+}
 
+#recipe-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 360px;
+}
+
+
+#button-form{
+    background-color: rgb(47, 187, 206);
 }

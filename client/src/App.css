@@ -14,15 +14,20 @@
 }
 
 .profileContainer{
-    background-image: url("https://i.imgur.com/xK7UZTJ.png");
-    background-repeat: no-repeat;
-    background-size:inherit;
     height: 100%;
     text-align: center;
     padding: 250px;
 }
 
+.profilePage{
+    background-image: url("https://i.imgur.com/xK7UZTJ.png");
+    background-repeat: no-repeat;
+    background-size:inherit;
+}
 
+.submit{
+    background-color: pink;
+}
 
 
 

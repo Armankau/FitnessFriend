@@ -33,7 +33,7 @@ const AddFoodForm = ({userId, setFoodList, foodList, setShowAdd}) => {
                 <br/>
                 <input type="text" name="calories" placeholder="calories (kcal)"/>
                 <br/>
-                <input type="submit" value="Add" />
+                <input type="submit" value="Add" id="button-form"/>
             </form>
             <PopUp errorMessages={errorMessages}/>
         </div>

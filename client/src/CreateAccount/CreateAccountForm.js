@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{useState, useEffect} from "react"
 import { useNavigate } from  "react-router-dom"
 import PopUp from "../PopUp/PopUp.js"
 import "./CreateAccount.css"
@@ -41,7 +41,16 @@ const CreateAccountForm = () => {
 
     }
 
+    useEffect(()=> {
+        // document.body.className("todayPage")
+        const body = document.getElementsByTagName("body")[0]
+        body.className = "createAccount"
+        // console.log(body)
+    },[])
     
+    function handleBack(){
+        navigate("/login")
+    }
     
     return (
         <div className="form-container">
@@ -59,6 +68,8 @@ const CreateAccountForm = () => {
                 <input type="text" name="sex" placeholder="Enter your sex..." onChange={onDataChange}/>
                 <br/>
                 <input type="submit" name="create_user" value="Create Account" id={"submit-account"} />
+                <h3>OR</h3>
+                <input type="button" name="create_user" value="Go Back to Login" id={"back-account"} onClick={handleBack}/>
                 <label>{errors}</label>
             </form>
             <PopUp errorMessages={errorM.errors}/>
