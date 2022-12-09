@@ -18,7 +18,7 @@ const PopUp = ({errorMessages}) => {
         {show ? 
             <div id="annoying-popup">
                 {allErrorMessages}
-                <button onClick={handleClick}>Ok</button>
+                <button onClick={handleClick} className="popButton">Ok</button>
             </div>
             :
             <div></div>

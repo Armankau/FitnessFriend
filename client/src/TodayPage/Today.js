@@ -105,7 +105,7 @@ const TodayPage = () => {
                 </div>
 
                 <div id="track-exercise">
-                    <p className="item-header">Track Exercise</p>
+                    <p  className="item-header">Track Exercise</p>
                     <ExerciseContainer exerciseList={exerciseList} setExerciseList={setExerciseList} />
                     <button className="add-item" onClick={() => setShowAddExercise(true)}>Add Exercise</button>
                     {addingExerciseForm}

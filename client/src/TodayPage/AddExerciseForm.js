@@ -35,7 +35,7 @@ const AddExerciseForm = ({userId, setExerciseList, exerciseList, setShowAdd}) =>
                 <br/>
                 <input type="text" name="calories" placeholder="calories (kcal)"/>
                 <br/>
-                <input type="submit" value="Add" className="button-form"/>
+                <input type="submit" value="Add" id="button-form"/>
             </form>
             <PopUp errorMessages={errorMessages}/>
         </div>
