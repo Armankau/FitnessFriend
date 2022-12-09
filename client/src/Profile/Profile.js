@@ -21,7 +21,9 @@ function Profile(){
         fetch("/me")
         .then(resp => resp.json())
         .then(data => {
-            if (data.error === "not authorized") navigate("/login")
+            if (["not authorized", "User not found"].includes(data.error)) {
+                navigate("/login")
+            }
             else setUser(data)
         })
     }, [])

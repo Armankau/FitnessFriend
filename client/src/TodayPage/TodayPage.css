@@ -76,31 +76,13 @@ div.calories-display {
     background-color: bisque;
 }
 
-.item-1 {
-    width: 21%;
+.item {
     margin-right: 1%;
-    float: left;
+    width: 21%;
     background-color: bisque;
 }
-
-.item-2 {
-    width: 21%;
-    margin-right: 1%;
-    float: left;
-    background-color: bisque;
-
-}
-
-.item-3 {
-    width: 21%;
-    margin-right: 1%;
-    float: left;
-    background-color: bisque;
-}
-
 
 #main-container button {
-    float: right;
     margin-left: 1%;
     margin-bottom: 1%;
     width: 30%;
@@ -114,7 +96,14 @@ div.calories-display {
 }
 
 #row {
+    display: flex;
+    justify-content: center;
     height: 43px;
+}
+
+#row p {
+    padding-top: 7px;
+    text-align: middle;
 }
 
 #add {
@@ -164,7 +153,6 @@ div.calories-display {
 
 #suggested-meals {
     text-align: center;
-    margin-top: 400px;
     display: flex;
     justify-content: center;
 }
@@ -178,4 +166,10 @@ div.calories-display {
     margin: 1px;
     transform: translate();
     background-color: white;
+}
+
+#recipe-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 360px;
 }
