@@ -14,13 +14,12 @@ const CreateAccountForm = () => {
         sex:""
     })
 
-    const [errorM, setErrorM] = useState({errors:[]})
+    const [errorM, setErrorM] = useState([])
 
     const onDataChange = (event) => {
         setFormData({...formData, [event.target.name]:event.target.value})
     }
     const navigate = useNavigate()
-    const [errors, setErrors] = useState()
 
     const createAccount = (event) => {
         event.preventDefault()
@@ -34,7 +33,7 @@ const CreateAccountForm = () => {
           })
             .then((r) => r.json())
             .then(postResponse => {
-                if (postResponse) setErrorM(postResponse) 
+                if (postResponse.errors) setErrorM(postResponse.errors) 
                 else navigate("/login")
             }
                 );
@@ -45,7 +44,6 @@ const CreateAccountForm = () => {
         // document.body.className("todayPage")
         const body = document.getElementsByTagName("body")[0]
         body.className = "createAccount"
-        // console.log(body)
     },[])
     
     function handleBack(){
@@ -70,9 +68,8 @@ const CreateAccountForm = () => {
                 <input type="submit" name="create_user" value="Create Account" id={"submit-account"} />
                 <h3>OR</h3>
                 <input type="button" name="create_user" value="Go Back to Login" id={"back-account"} onClick={handleBack}/>
-                <label>{errors}</label>
             </form>
-            <PopUp errorMessages={errorM.errors}/>
+            <PopUp errorMessages={errorM}/>
         </div>
     )
 }

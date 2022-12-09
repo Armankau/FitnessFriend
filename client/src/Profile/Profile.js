@@ -47,7 +47,6 @@ function Profile(){
         // document.body.className("todayPage")
         const body = document.getElementsByTagName("body")[0]
         body.className = "profilePage"
-        // console.log(body)
     },[])
 
     function handleSexSubmit(e) {

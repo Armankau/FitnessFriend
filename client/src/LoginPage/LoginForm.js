@@ -19,7 +19,6 @@ let LoginForm = () => {
 
     const onLogin = event => {
         event.preventDefault()
-        console.log(formData)
         fetch("/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -31,7 +30,6 @@ let LoginForm = () => {
                 console.log(answer.error)
             }
             else {
-                console.log(answer)
                 navigate("/")
             }
         })

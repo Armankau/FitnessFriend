@@ -7,7 +7,6 @@ const AddExerciseForm = ({userId, setExerciseList, exerciseList, setShowAdd}) =>
         event.preventDefault()
         
         const exerciseObj = {name:event.target[0].value, duration:parseInt(event.target[1].value), calories_burnt:parseInt(event.target[2].value), user_id:userId}
-        console.log(exerciseObj)
 
         fetch("/exercises", {
             method: "POST",
